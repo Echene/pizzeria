@@ -26,6 +26,8 @@ public class Pizza {
 		this.prix = unPrix;
 	}
 	
+	public Pizza() {};
+	
 	
 	public int getId() {
 		return id;
