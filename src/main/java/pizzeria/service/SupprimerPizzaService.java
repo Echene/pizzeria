@@ -1,5 +1,11 @@
 package pizzeria.service;
 
+import pizzeria.exception.DeletePizzaException;
+
+/** Classe de service qui interroge l'utilisateur et supprime une pizza
+ * @author Emmanuel
+ *
+ */
 public class SupprimerPizzaService extends MenuService {
 
 	@Override
@@ -8,7 +14,13 @@ public class SupprimerPizzaService extends MenuService {
 		System.out.println("Suppression d'une pizza");
 		System.out.println("Veuillez choisir une pizza");				
 
-		getPizzaDAO().deletePizza(getScanner().nextLine());
+		try {
+			
+			getPizzaDAO().deletePizza(getScanner().nextLine());
+			
+		} catch (DeletePizzaException e) {
+			e.printStackTrace();
+		}		
 		
 	}
 

@@ -2,16 +2,13 @@ package pizzeria.console;
 
 import java.util.Scanner;
 
-import pizzeria.service.AjouterPizzaService;
-import pizzeria.service.ListerPizzaService;
+import pizzeria.exception.PizzaException;
 import pizzeria.service.MenuServiceFactory;
-import pizzeria.service.ModifierPizzaService;
-import pizzeria.service.SupprimerPizzaService;
 
 public class PizzeriaAdminConsoleAppTP04 {
 
 	@SuppressWarnings("resource")
-	public static void main(String[] args) {
+	public static void main(String[] args) throws PizzaException {
 		
 		Scanner scan = new Scanner(System.in);
 		
