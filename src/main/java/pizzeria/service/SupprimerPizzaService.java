@@ -2,7 +2,7 @@ package pizzeria.service;
 
 import pizzeria.exception.DeletePizzaException;
 
-/** Classe de service qui interroge l'utilisateur et supprime une pizza
+/** Classe de service qui permet la suppression d'une pizza
  * @author Emmanuel
  *
  */

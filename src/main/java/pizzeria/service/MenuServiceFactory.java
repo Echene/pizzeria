@@ -2,6 +2,11 @@ package pizzeria.service;
 
 public class MenuServiceFactory {
 	
+	/** Méthode permettant à l'utilisateur de naviguer dans les différents services
+	 * @param choix Numéro du choix que l'utilisateur saisit
+	 * @return Renvoie le service correspondant au choix. <br>
+	 * Renvoie null si le choix ne corresponds à aucun service
+	 */
 	public static MenuService getInstance(int choix) {
 		
 		if (choix == 1) {

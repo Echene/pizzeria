@@ -2,6 +2,10 @@ package pizzeria.service;
 
 import pizzeria.model.Pizza;
 
+/** Classe de service qui affiche la liste des pizzas
+ * @author Emmanuel
+ *
+ */
 public class ListerPizzaService extends MenuService {
 
 	@Override

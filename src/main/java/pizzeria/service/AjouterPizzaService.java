@@ -4,6 +4,10 @@ import pizzeria.exception.SavePizzaException;
 import pizzeria.model.CategoriePizza;
 import pizzeria.model.Pizza;
 
+/** Classe de service qui permet l'ajout d'une pizza dans la liste
+ * @author Emmanuel
+ *
+ */
 public class AjouterPizzaService extends MenuService {
 
 	@Override
