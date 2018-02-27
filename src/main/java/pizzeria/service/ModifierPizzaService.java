@@ -3,6 +3,7 @@ package pizzeria.service;
 import java.util.InputMismatchException;
 
 import pizzeria.exception.UpdatePizzaException;
+import pizzeria.model.CategoriePizza;
 import pizzeria.model.Pizza;
 
 public class ModifierPizzaService extends MenuService {
@@ -39,10 +40,12 @@ public class ModifierPizzaService extends MenuService {
 			}
 
 			System.out.println("Veuillez saisir le nouveau prix : ");
-
 			double prix = Double.parseDouble(getScanner().nextLine());
+			
+			System.out.println("Veuillez saisir le nouveau prix : ");
+			CategoriePizza categorie = CategoriePizza.findByLibelle(getScanner().nextLine());
 
-			getPizzaDAO().updatePizza(laPizza.getCode(), new Pizza(code, nom, prix));
+			getPizzaDAO().updatePizza(laPizza.getCode(), new Pizza(code, nom, prix, categorie));
 
 		} catch (InputMismatchException | UpdatePizzaException e) {
 			System.out.println(e.getMessage());

@@ -11,7 +11,8 @@ public class ListerPizzaService extends MenuService {
 
 		for (Pizza pizza : getPizzaDAO().findAllPizzas()) {
 
-			System.out.println(pizza.getCode() + " --> " + pizza.getLibelle() + " (" + pizza.getPrix() + " €)");
+			//System.out.println(pizza.getCode() + " --> " + pizza.getLibelle() + " (" + pizza.getPrix() + " €)");
+			System.out.println(pizza.toString()); 
 
 		}
 

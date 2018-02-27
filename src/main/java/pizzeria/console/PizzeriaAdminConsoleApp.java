@@ -3,22 +3,25 @@ package pizzeria.console;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import pizzeria.model.CategoriePizza;
 import pizzeria.model.Pizza;
 
 public class PizzeriaAdminConsoleApp {
 
+	//TODO Implémenter les catégories pour les pizzas
+	
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 
 		Pizza[] tabPizzas = new Pizza[8];
-		tabPizzas[0] = new Pizza(0, "PEP", "Pépéroni", 12.50);
-		tabPizzas[1] = new Pizza(1, "MAR", "Margherita", 14.00);
-		tabPizzas[2] = new Pizza(2, "REIN", "La Reine", 11.50);
-		tabPizzas[3] = new Pizza(3, "FRO", "La 4 fromages", 12.00);
-		tabPizzas[4] = new Pizza(4, "CAN", "La cannibale", 12.50);
-		tabPizzas[5] = new Pizza(5, "SAV", "La savoyarde", 13.00);
-		tabPizzas[6] = new Pizza(6, "ORI", "L'orientale", 13.50);
-		tabPizzas[7] = new Pizza(7, "IND", "L'indienne", 14.00);
+		tabPizzas[0] = new Pizza(0, "PEP", "Pépéroni", 12.50, CategoriePizza.SANS_VIANDE);
+		tabPizzas[1] = new Pizza(1, "MAR", "Margherita", 14.00, CategoriePizza.VIANDE);
+		tabPizzas[2] = new Pizza(2, "REIN", "La Reine", 11.50, CategoriePizza.POISSON);
+		tabPizzas[3] = new Pizza(3, "FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE);
+		tabPizzas[4] = new Pizza(4, "CAN", "La cannibale", 12.50, CategoriePizza.VIANDE);
+		tabPizzas[5] = new Pizza(5, "SAV", "La savoyarde", 13.00, CategoriePizza.VIANDE);
+		tabPizzas[6] = new Pizza(6, "ORI", "L'orientale", 13.50, CategoriePizza.POISSON);
+		tabPizzas[7] = new Pizza(7, "IND", "L'indienne", 14.00, CategoriePizza.SANS_VIANDE);
 
 		Scanner scan = new Scanner(System.in);
 		int choix = 0;
@@ -65,7 +68,7 @@ public class PizzeriaAdminConsoleApp {
 
 				tabPizzas = Arrays.copyOf(tabPizzas, tabPizzas.length + 1);
 
-				tabPizzas[tabPizzas.length - 1] = new Pizza(code, nom, prix);
+				//tabPizzas[tabPizzas.length - 1] = new Pizza(code, nom, prix);
 
 			} else if (choix == 3) {
 
@@ -82,7 +85,7 @@ public class PizzeriaAdminConsoleApp {
 				System.out.println("Veuillez saisir le nouveau prix : ");
 				prix = Double.parseDouble(scan.nextLine());
 
-				tabPizzas[laPizza] = new Pizza(code, nom, prix);
+				//tabPizzas[laPizza] = new Pizza(code, nom, prix);
 
 			} else if (choix == 4) {
 

@@ -6,28 +6,33 @@ public class Pizza {
 	String code;
 	String libelle;
 	double prix;
-	
+	CategoriePizza categorie;
 
 	static int compteur = 1;
 	
-	public Pizza(String unCode, String unLibelle, double unPrix) {
+	public Pizza(String unCode, String unLibelle, double unPrix, CategoriePizza uneCategorie) {
 		
 		this.id = compteur++;
 		
 		this.code = unCode;
 		this.libelle = unLibelle;
 		this.prix = unPrix;
+		this.categorie = uneCategorie;
 	}
 
-	public Pizza(int unId, String unCode, String unLibelle, double unPrix) {
+	public Pizza(int unId, String unCode, String unLibelle, double unPrix, CategoriePizza uneCategorie) {
 		this.id = unId;
 		this.code = unCode;
 		this.libelle = unLibelle;
 		this.prix = unPrix;
+		this.categorie = uneCategorie;
 	}
 	
 	public Pizza() {};
 	
+	public String toString() {
+		return this.code + " " + this.libelle + " " + this.prix + " " + this.categorie;	
+	}
 	
 	public int getId() {
 		return id;

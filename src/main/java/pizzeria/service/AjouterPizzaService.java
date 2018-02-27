@@ -1,6 +1,7 @@
 package pizzeria.service;
 
 import pizzeria.exception.SavePizzaException;
+import pizzeria.model.CategoriePizza;
 import pizzeria.model.Pizza;
 
 public class AjouterPizzaService extends MenuService {
@@ -24,8 +25,11 @@ public class AjouterPizzaService extends MenuService {
 
 			System.out.println("Veuillez saisir le prix : ");
 			double prix = Double.parseDouble(getScanner().nextLine());
+			
+			System.out.println("Veuillez saisir la catégorie (Viande/Sans viande/Poisson) : ");
+			CategoriePizza categorie = CategoriePizza.findByLibelle(getScanner().nextLine()) ;
 
-			getPizzaDAO().saveNewPizza(new Pizza(code, nom, prix));
+			getPizzaDAO().saveNewPizza(new Pizza(code, nom, prix, categorie));
 						
 		} catch (SavePizzaException e) {
 
