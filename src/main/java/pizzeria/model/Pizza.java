@@ -1,5 +1,6 @@
 package pizzeria.model;
 
+import utils.StringUtils;
 import utils.ToString;
 
 /**
@@ -13,10 +14,10 @@ public class Pizza {
 	@ToString(before="- ", after=" --> ", uppercase=true)
 	String code;
 	
-	@ToString(before=" ", after=" ")
+	@ToString(before=" ", after=" (")
 	String libelle;
 	
-	@ToString(before="( ", after=" €) ")
+	@ToString(before=" ", after=" €) ")
 	double prix;
 	
 	
@@ -60,8 +61,13 @@ public class Pizza {
 	 */
 	public Pizza() {};
 	
+	@Override
 	public String toString() {
-		return this.code + " " + this.libelle + " " + this.prix + " " + this.categorie;	
+		
+		//return this.code + " " + this.libelle + " " + this.prix + " " + this.categorie;	
+		
+		// Utilisation des annotations
+		return StringUtils.getStringValue(this);
 	}
 
 	/** Getter

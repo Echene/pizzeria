@@ -9,6 +9,10 @@ import pizzeria.exception.SavePizzaException;
 import pizzeria.exception.UpdatePizzaException;
 import pizzeria.model.Pizza;
 
+/**
+ * @author Emmanuel
+ *
+ */
 public abstract class MenuService {
 
 	public abstract void executeUC() throws PizzaException;
@@ -17,7 +21,6 @@ public abstract class MenuService {
 	private Scanner scan = null;
 
 	/** Constructeur
-	 * @throws SavePizzaException 
 	 * 
 	 */
 	public MenuService() {

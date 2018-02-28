@@ -1,5 +1,7 @@
 package pizzeria.service;
 
+import pizzeria.exception.PizzaException;
+
 public class MenuServiceFactory {
 	
 	/** Méthode permettant à l'utilisateur de naviguer dans les différents services
@@ -7,7 +9,7 @@ public class MenuServiceFactory {
 	 * @return Renvoie le service correspondant au choix. <br>
 	 * Renvoie null si le choix ne corresponds à aucun service
 	 */
-	public static MenuService getInstance(int choix) {
+	public static MenuService getInstance(int choix)  throws PizzaException{
 		
 		if (choix == 1) {
 
@@ -29,6 +31,10 @@ public class MenuServiceFactory {
 
 			System.out.println("Aurevoir :'(");
 
+		} else {
+			
+			throw new PizzaException("Choix incorrect");
+			
 		}
 		
 		return null;

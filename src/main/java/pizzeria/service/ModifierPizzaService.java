@@ -19,6 +19,8 @@ public class ModifierPizzaService extends MenuService {
 
 			System.out.println("Mise à jour d'une pizza");
 			System.out.println("Veuillez choisir une pizza");
+			
+			// Récupération de la pizza à modifier
 			Pizza laPizza = getPizzaDAO().findPizzaByCode(getScanner().nextLine());
 
 			System.out.println("Veuillez saisir le nouveau code : ");
