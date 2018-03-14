@@ -8,7 +8,15 @@ import static org.junit.Assert.*;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
+
+import pizzeria.dao.PizzaMemDao;
+import pizzeria.exception.SavePizzaException;
+import pizzeria.model.CategoriePizza;
+import pizzeria.model.Pizza;
+
 import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.*;
+
+import java.util.Scanner;
 
 /**
  * @author Emmanuel
@@ -25,10 +33,31 @@ public class AjouterPizzaServiceTest {
 	@Test
 	public void testExecuteUC() {
 		
-		systemInMock.provideLines("TEST");
-		systemInMock.provideLines("unePizzaTest");
-		systemInMock.provideLines(12.00 + "");
-		systemInMock.provideLines("Viande");
+		systemInMock.provideLines("TEST", "unePizzaTest", 12.00 + "", "Viande");
+		
+		Scanner scanner = MenuService.getScanner();
+		
+		PizzaMemDao dao = (PizzaMemDao) MenuService.getPizzaDAO();
+		
+		int size = dao.findAllPizzas().size();
+		
+		AjouterPizzaService service = new AjouterPizzaService();
+		
+		try {
+			service.executeUC();
+			assertEquals(size + 1, dao.findAllPizzas().size());
+		} catch (SavePizzaException e) {
+			e.printStackTrace();
+		}
+		
+		Pizza pizza = dao.findPizzaByCode("TEST");
+		
+		assertNotNull(pizza);
+		assertEquals("unePizzaTest", pizza.getLibelle());
+		assert(pizza.getPrix() == 12.00);
+		assertEquals(CategoriePizza.VIANDE, pizza.getCategorie());
+		
+		
 	}
 
 }

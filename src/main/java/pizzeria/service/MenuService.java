@@ -1,9 +1,11 @@
 package pizzeria.service;
 
+import java.util.List;
 import java.util.Scanner;
 
 import pizzeria.dao.IPizzaDao;
 import pizzeria.dao.PizzaMemDao;
+import pizzeria.exception.DeletePizzaException;
 import pizzeria.exception.PizzaException;
 import pizzeria.exception.SavePizzaException;
 import pizzeria.exception.UpdatePizzaException;
@@ -18,7 +20,7 @@ public abstract class MenuService {
 	public abstract void executeUC() throws PizzaException;
 
 	private static IPizzaDao pizzaDao = null;
-	private Scanner scan = null;
+	private static Scanner scan = null;
 
 	/** Constructeur
 	 * 
@@ -31,7 +33,7 @@ public abstract class MenuService {
 		}
 	}
 
-	protected Scanner getScanner() {
+	protected static Scanner getScanner() {
 		if (scan == null) {
 			scan = new Scanner(System.in);
 		}
@@ -39,10 +41,13 @@ public abstract class MenuService {
 	}
 
 	protected void setScanner(Scanner scan) {
-		this.scan = scan;
+		MenuService.scan = scan;
 	}
 
-	protected IPizzaDao getPizzaDAO() {
+	protected static IPizzaDao getPizzaDAO() {
+		if (pizzaDao == null) {
+			pizzaDao = new PizzaMemDao();			
+		}
 		return pizzaDao;
 	}
 
