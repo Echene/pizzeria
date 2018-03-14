@@ -50,6 +50,7 @@ public class Pizza {
 	 */
 	public Pizza(int unId, String unCode, String unLibelle, double unPrix, CategoriePizza uneCategorie) {
 		this.id = unId;
+		
 		this.code = unCode;
 		this.libelle = unLibelle;
 		this.prix = unPrix;

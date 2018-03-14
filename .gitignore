@@ -2,3 +2,6 @@
 *.class
 .classpath
 /bin/
+/target/
+/target
+.project

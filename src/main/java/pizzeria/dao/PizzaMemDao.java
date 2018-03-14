@@ -31,17 +31,31 @@ public class PizzaMemDao implements IPizzaDao {
 
 	@Override
 	public void saveNewPizza(Pizza pizza) {
-		listPizzas.add(pizza);
+		if (pizza != null) {
+			listPizzas.add(pizza);
+		}	
 	}
 
 	@Override
 	public void updatePizza(String codePizza, Pizza pizza) {
-		listPizzas.set(findIndexPizzaByCode(codePizza), pizza);
+		
+		int index = findIndexPizzaByCode(codePizza);
+		
+		if (index != -1 && pizza != null) {
+			listPizzas.set(index, pizza);
+		}
+		
 	}
 
 	@Override
 	public void deletePizza(String codePizza) {
-		listPizzas.remove(findIndexPizzaByCode(codePizza));
+		
+		int index = findIndexPizzaByCode(codePizza);
+		
+		if (index != -1) {
+			listPizzas.remove(index);
+		}
+		
 	}
 
 	@Override
@@ -56,12 +70,21 @@ public class PizzaMemDao implements IPizzaDao {
 	}
 
 	public int findIndexPizzaByCode(String codePizza) {
+		
 		Pizza pizza = findPizzaByCode(codePizza);
+		
+		// Si la pizza n'a pas été trouvée
+		if(pizza == null) {
+			return -1;
+		}
+
 		for (int i = 0; i < listPizzas.size(); i++) {
 			if (listPizzas.get(i).getCode().equals(pizza.getCode())) {
 				return i;
 			}
 		}
+		
+		// Si aucun index corresponds
 		return -1;
 	}
 
