@@ -21,7 +21,7 @@ public class AjouterPizzaService extends MenuService {
 			String code = getScanner().nextLine();
 			
 			if (getPizzaDAO().findPizzaByCode(code) != null) {
-				throw new SavePizzaException("Ce code est dÈj‡ utilisÈ par une autre pizza");
+				throw new SavePizzaException("Ce code est d√©j√† utilis√© par une autre pizza");
 			}
 
 			System.out.println("Veuillez saisir le nom (sans espace) : ");
@@ -30,13 +30,13 @@ public class AjouterPizzaService extends MenuService {
 			System.out.println("Veuillez saisir le prix : ");
 			double prix = Double.parseDouble(getScanner().nextLine());
 			
-			System.out.println("Veuillez saisir la catÈgorie (Viande/Sans viande/Poisson) : ");
-			CategoriePizza categorie = CategoriePizza.findByLibelle(getScanner().nextLine()) ;
+			System.out.println("Veuillez saisir la cat√©gorie (VIANDE/SANS_VIANDE/POISSON) : ");
+			CategoriePizza categorie = new CategoriePizza(getScanner().nextLine()) ;
 
 			getPizzaDAO().saveNewPizza(new Pizza(code, nom, prix, categorie));
 						
 		} catch (SavePizzaException e) {
-
+			e.printStackTrace();
 		}
 		
 

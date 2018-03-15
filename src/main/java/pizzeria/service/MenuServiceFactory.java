@@ -3,14 +3,18 @@ package pizzeria.service;
 import pizzeria.exception.PizzaException;
 
 public class MenuServiceFactory {
-	
-	/** Méthode permettant à l'utilisateur de naviguer dans les différents services
-	 * @param choix Numéro du choix que l'utilisateur saisit
+
+	/**
+	 * MÃ©thode permettant Ã  l'utilisateur de naviguer dans les diffÃ©rents
+	 * services
+	 * 
+	 * @param choix
+	 *            NumÃ©ro du choix que l'utilisateur saisit
 	 * @return Renvoie le service correspondant au choix. <br>
-	 * Renvoie null si le choix ne corresponds à aucun service
+	 *         Renvoie null si le choix ne corresponds ï¿½ aucun service
 	 */
-	public static MenuService getInstance(int choix)  throws PizzaException{
-		
+	public static MenuService getInstance(int choix) throws PizzaException {
+
 		if (choix == 1) {
 
 			return new ListerPizzaService();
@@ -27,18 +31,22 @@ public class MenuServiceFactory {
 
 			return new SupprimerPizzaService();
 
+		} else if (choix == 5) {
+
+			return new RemplirPizzaService();
+
 		} else if (choix == 99) {
 
 			System.out.println("Aurevoir :'(");
 
 		} else {
-			
+
 			throw new PizzaException("Choix incorrect");
-			
+
 		}
-		
+
 		return null;
-		
+
 	}
 
 }

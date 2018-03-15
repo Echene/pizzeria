@@ -16,8 +16,6 @@ import pizzeria.model.Pizza;
 
 import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.*;
 
-import java.util.Scanner;
-
 /**
  * @author Emmanuel
  *
@@ -34,8 +32,6 @@ public class AjouterPizzaServiceTest {
 	public void testExecuteUC() {
 		
 		systemInMock.provideLines("TEST", "unePizzaTest", 12.00 + "", "Viande");
-		
-		Scanner scanner = MenuService.getScanner();
 		
 		PizzaMemDao dao = (PizzaMemDao) MenuService.getPizzaDAO();
 		

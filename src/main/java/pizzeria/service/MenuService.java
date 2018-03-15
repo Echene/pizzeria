@@ -1,15 +1,10 @@
 package pizzeria.service;
-
-import java.util.List;
 import java.util.Scanner;
 
 import pizzeria.dao.IPizzaDao;
+import pizzeria.dao.PizzaBaseDao;
 import pizzeria.dao.PizzaMemDao;
-import pizzeria.exception.DeletePizzaException;
 import pizzeria.exception.PizzaException;
-import pizzeria.exception.SavePizzaException;
-import pizzeria.exception.UpdatePizzaException;
-import pizzeria.model.Pizza;
 
 /**
  * @author Emmanuel
@@ -28,7 +23,7 @@ public abstract class MenuService {
 	public MenuService() {
 		if (pizzaDao == null) {
 
-			pizzaDao = new PizzaMemDao();
+			pizzaDao = new PizzaBaseDao();
 
 		}
 	}
@@ -46,7 +41,7 @@ public abstract class MenuService {
 
 	protected static IPizzaDao getPizzaDAO() {
 		if (pizzaDao == null) {
-			pizzaDao = new PizzaMemDao();			
+			pizzaDao = new PizzaBaseDao();			
 		}
 		return pizzaDao;
 	}

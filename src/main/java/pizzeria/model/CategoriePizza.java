@@ -4,49 +4,35 @@
 package pizzeria.model;
 
 /**
- * Classe qui représente une catégorie de pizza
+ * Classe qui reprÃ©sente une catÃ©gorie de pizza
  * 
  * @author Emmanuel
  *
  */
-public enum CategoriePizza {
+public class CategoriePizza {
+	
+	String libelle;
 
-	/** Catégorie de pizza avec viande */
-	VIANDE("Viande"),
-
-	/** Catégorie de pizza avec poisson */
-	POISSON("Poisson"),
-
-	/** Catégorie de pizza sans viande */
-	SANS_VIANDE("SansViande");
-
-	private String categ;
-
-	/**
-	 * Constructor
-	 * 
-	 * @param categ Catégorie de la pizza
+	/** Constructor
+	 * @param libelle
 	 */
-	private CategoriePizza(String categ) {
-		this.categ = categ;
+	public CategoriePizza(String libelle) {
+		this.libelle = libelle;
 	}
 
-	public String getCateg() {
-		return categ;
-	}
-
-	/**
-	 * Retourne une catégorie de pizza en fonction de son libellé
-	 * 
-	 * @return libelle libellé de la catégorie
-	 * @return {@link CategoriePizza}
+	/** Getter
+	 * @return the libelle
 	 */
-	public static CategoriePizza findByLibelle(String libelle) {
-		for (CategoriePizza categorie : values()) {
-			if (categorie.getCateg().equals(libelle)) {
-				return categorie;
-			}
-		}
-		return null;
+	public String getLibelle() {
+		return libelle;
 	}
+
+	/** Setter
+	 * @param libelle the libelle to set
+	 */
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+	
+	
 }

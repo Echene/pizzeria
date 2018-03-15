@@ -14,14 +14,14 @@ public class PizzaMemDao implements IPizzaDao {
 
 		listPizzas = new ArrayList<Pizza>();
 
-		listPizzas.add(new Pizza(0, "PEP", "Pépéroni", 12.50, CategoriePizza.SANS_VIANDE));
-		listPizzas.add(new Pizza(1, "MAR", "Margherita", 14.00, CategoriePizza.SANS_VIANDE));
-		listPizzas.add(new Pizza(2, "REIN", "La Reine", 11.50, CategoriePizza.SANS_VIANDE));
-		listPizzas.add(new Pizza(3, "FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE));
-		listPizzas.add(new Pizza(4, "CAN", "La cannibale", 12.50, CategoriePizza.SANS_VIANDE));
-		listPizzas.add(new Pizza(5, "SAV", "La savoyarde", 13.00, CategoriePizza.SANS_VIANDE));
-		listPizzas.add(new Pizza(6, "ORI", "L'orientale", 13.50, CategoriePizza.SANS_VIANDE));
-		listPizzas.add(new Pizza(7, "IND", "L'indienne", 14.00, CategoriePizza.SANS_VIANDE));
+		listPizzas.add(new Pizza(0, "PEP", "PÃ©pÃ©roni", 12.50, new CategoriePizza("VIANDE")));
+		listPizzas.add(new Pizza(1, "MAR", "Margherita", 14.00, new CategoriePizza("VIANDE")));
+		listPizzas.add(new Pizza(2, "REIN", "La Reine", 11.50, new CategoriePizza("VIANDE")));
+		listPizzas.add(new Pizza(3, "FRO", "La 4 fromages", 12.00, new CategoriePizza("VIANDE")));
+		listPizzas.add(new Pizza(4, "CAN", "La cannibale", 12.50, new CategoriePizza("VIANDE")));
+		listPizzas.add(new Pizza(5, "SAV", "La savoyarde", 13.00, new CategoriePizza("VIANDE")));
+		listPizzas.add(new Pizza(6, "ORI", "L'orientale", 13.50, new CategoriePizza("VIANDE")));
+		listPizzas.add(new Pizza(7, "IND", "L'indienne", 14.00, new CategoriePizza("VIANDE")));
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class PizzaMemDao implements IPizzaDao {
 		
 		Pizza pizza = findPizzaByCode(codePizza);
 		
-		// Si la pizza n'a pas été trouvée
+		// Si la pizza n'a pas ï¿½tï¿½ trouvï¿½e
 		if(pizza == null) {
 			return -1;
 		}
